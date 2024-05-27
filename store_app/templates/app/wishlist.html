@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Wishlist{% endblock %}
+
+{% block content %}
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="row">
+          {% for product in products %}
+            <div class="col-sm-4 text-center mb-4 hover-shadow">
+              <a href="{% url "store_app:product-detail" product.product_id %}" class="btn">
+                <div>
+                  <img
+                    src="{{ product.product.product_image.url }}"
+                    alt="{{ product.product.title }}"
+                    width="300"
+                    height="300"
+                  >
+                  <div class="fw-bold">{{ product.product.title }}</div>
+                  <div class="fw-bold text-danger">
+                    {{ product.product.price_with_discount }}$/-
+                    <small class="fw-light text-decoration-line-through">
+                      {{ product.product.selling_price }}
+                    </small>
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Category{% endblock %}
+
+{% block content %}
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="list-group">
+          {% for title in titles %}
+            <a
+              href="{% url "store_app:category-title" title.title %}"
+              class="list-group-item list-group-item-action"
+              aria-current="true"
+            >
+                {{ title.title }}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="row">
+          {% for product in products %}
+            <div class="col text-center mb-4">
+              <a href="{% url "store_app:product-detail" product.id %}" class="btn">
+                <div>
+                  <img
+                    src="{{ product.product_image.url }}"
+                    alt="{{ product.title }}"
+                    width="300px"
+                    height="200px"
+                  >
+                  <div class="fw-bold">{{ product.title }}</div>
+                  <div class="fw-bold text-danger">
+                    {% if product.discount_price == 0 %}
+                      <small class="fw-light">{{ product.selling_price }}$</small>
+                    {% else %}
+                      <div>Discount {{ product.discount_price }}$</div>
+                      <div>
+                        Old price:
+                        <small class="fw-light text-decoration-line-through">
+                          {{ product.selling_price }}$
+                        </small>
+                      </div>
+                      <small class="text-info">NEW PRICE: {{ product.price_with_discount }}$</small>
+                    {% endif %}
+
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

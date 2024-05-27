@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+  <div class="container">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-danger">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    <div class="row mt-5">
+      <div class="col-sm-6">
+        <h4>Order Summary</h4>
+        <hr>
+        {% for cart in carts %}
+          <div class="card mb-2">
+            <div class="card-body">
+              <h5>Product: {{ cart.product.title }}</h5>
+              <p>Quantity: {{ cart.quantity }}</p>
+              <div class="fw-bold">Price: {{ cart.price_with_discount }}</div>
+            </div>
+          </div>
+        {% endfor %}
+        <div class="fw-bold">Total cost + 4.0$ = {{ total_amount }}$</div>
+        <small>Term and condition: Term and condition</small>
+      </div>
+      <div class="col-sm-4 offset-sm-1">
+        <h4>Select Shipping Address</h4>
+        <hr>
+        <form id="my_form" method="post">
+          {% csrf_token %}
+          {% for address in addresses %}
+            <div class="card">
+              <h5>{{ address.name }}</h5>
+              <p>Mobile: {{ address.phone }}</p>
+              <p>{{ address.location }} {{ address.state }} - {{ address.zip_code }}</p>
+            </div>
+            <div class="form-check mt-2 mb-5">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="customer_id"
+                id="cust_add{{ forloop.counter }}"
+                value="{{ address.id }}"
+              >
+              <label for="cust_add{{ forloop.counter }}" class="form-check-label fw-bold">
+                Address:{{ forloop.counter }}
+              </label>
+            </div>
+          {% endfor %}
+          <div class="form-check mb-3">
+            <label for="total_amount" class="form-label">Total amount</label>
+            <input type="number" class="form-control" name="total_amount" value="{{ total_amount }}">
+          </div>
+        </form>
+        <form method="POST" action="{% url "store_app:checkout" %}" accept-charset="utf-8" target="_blank">
+          {% csrf_token %}
+          <input type="hidden" name="total_amount" value="{{ total_amount }}">
+          <input type="hidden" name="customer_id" id="selected_customer_id" value="">
+          <button id="payment_btn" type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Payment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block payment %}
+{% endblock %}

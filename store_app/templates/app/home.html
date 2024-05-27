@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block banner_slider %}
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static "app/images/banner/b1.jpg" %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static "app/images/banner/b2.jpg" %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static "app/images/banner/b3.jpg" %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static "app/images/banner/b4.jpg" %}" class="d-block w-100" alt="banner image">
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block information %}
+  <div class="container">
+    <div class="row bg-success text-center p-5 text-white border-bottom shadow">
+      <h1>Products</h1>
+      <small class="fs-5">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.
+      </small>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>Welcome to Django Store</h1>
+    <div class="container row cards">
+      <div
+        class="col-md-4 col-sm-4 mi-go wow fadeInUp good_card_container"
+        data-wow-duration="ls"
+        data-wow-delay="0.6s"
+        style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none"
+      >
+       <div class="good_card gn_bg">
+         <a href="{% url "store_app:category" "GH" %}">
+           <div class="good_card_content text-center">
+             <img src="{% static "app/images/product/buffalo-ghee.png" %}" class="img-responsive" alt="Buffalo">
+             <p class="mlk_pro">Ghee</p>
+           </div>
+         </a>
+       </div>
+      </div>
+      <div
+        class="col-md-4 col-sm-4 mi-go wow fadeInUp good_card_container"
+        data-wow-duration="ls"
+        data-wow-delay="0.6s"
+        style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none"
+      >
+       <div class="good_card curd_bg_pro">
+         <a href="{% url "store_app:category" "CR" %}">
+           <div class="good_card_content text-center">
+             <img src="{% static "app/images/product/curd-total.png" %}" class="img-responsive" alt="Curd">
+             <p class="mlk_pro">Curd</p>
+           </div>
+         </a>
+       </div>
+      </div>
+      <div
+        class="col-md-4 col-sm-4 mi-go wow fadeInUp good_card_container"
+        data-wow-duration="ls"
+        data-wow-delay="0.6s"
+        style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none"
+      >
+       <div class="good_card butter_bg">
+         <a href="{% url "store_app:category" "IC" %}">
+           <div class="good_card_content text-center">
+             <img src="{% static "app/images/product/kulfi.png" %}" class="img-responsive" alt="Kulfi">
+             <p class="mlk_pro">Kulfi</p>
+           </div>
+         </a>
+       </div>
+      </div>
+      <div
+        class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+        data-wow-duration="ls"
+        data-wow-delay="0.6s"
+        style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none"
+      >
+       <div class="good_card gn_bg">
+         <a href="{% url "store_app:category" "MS" %}">
+           <div class="good_card_content text-center">
+             <img
+               src="{% static "app/images/product/milk-shake-chocolate.png" %}"
+               class="img-responsive"
+               alt="Buffalo"
+             >
+             <p class="mlk_pro">MilkShake chocolate</p>
+           </div>
+         </a>
+       </div>
+      </div>
+      <div
+        class="col-md-4 col-sm-4 mi-go wow fadeInUp good_card_container"
+        data-wow-duration="ls"
+        data-wow-delay="0.6s"
+        style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none"
+      >
+       <div class="good_card curd_bg_pro">
+         <a href="{% url "store_app:category" "ML" %}">
+           <div class="good_card_content text-center">
+             <img
+               src="{% static "app/images/product/milk-shake-strawberry.png" %}"
+               class="img-responsive"
+               alt="Curd"
+             >
+             <p class="mlk_pro">MilkShake strawberry</p>
+           </div>
+         </a>
+       </div>
+      </div>
+      <div
+        class="col-md-4 col-sm-4 mi-go wow fadeInUp good_card_container"
+        data-wow-duration="ls"
+        data-wow-delay="0.6s"
+        style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none"
+      >
+       <div class="good_card butter_bg">
+         <a href="{% url "store_app:category" "IC" %}">
+           <div class="good_card_content text-center">
+             <img src="{% static "app/images/product/icbars.png" %}" class="img-responsive" alt="Kulfi">
+             <p class="mlk_pro">Icebars</p>
+           </div>
+         </a>
+       </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,50 @@
+.good_card_content img {
+  width: 100%;
+}
+
+.cards {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.good_card_container {
+  margin-top: 10px;
+}
+
+.good_card {
+  padding: 50px 40px;
+  border: 1px solid #efe8e1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  align-items: center;
+}
+
+.butter_bg {
+  background-color: #fff;
+  background-image: linear-gradient(#fff7ef, #fff);
+}
+
+.gn_bg {
+  background-color: #fff;
+  background-image: linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+}
+
+.curd_bg_pro {
+  background-color: #fff;
+  background-image: linear-gradient(rgba(10, 77, 123, 0.1), #fff);
+}
+
+.mlk_pro {
+  color: #636362;
+  font-size: 22px;
+  line-height: 22px;
+  width:43%;
+  margin: 0 auto;
+  text-align:center;
+}
+
+.good_card a{
+    text-decoration: none;
+}
